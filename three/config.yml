@@ -1,0 +1,13 @@
+environment: svnstats-dev
+chdir: .
+address: 127.0.0.1
+user: eastmad       # Replace with your user name
+group: eastmad      # Replace with your user group
+port: 4567
+pid: thin.pid
+rackup: rackup.ru
+log: logs/thin.log
+max_conns: 1024
+timeout: 30
+max_persistent_conns: 512
+daemonize: true

@@ -1,0 +1,11 @@
+<div id="main">
+  <h1>SVNStats about developers</h1>
+    <table>
+    <tbody> 
+      <% @user_data.each do | dev | %>
+         <tr><td><b><a href="developers/<%=dev[:name]%>"><%=dev[:name]%><b></td></tr>
+      <% end %>
+    </tbody>
+    </table>
+</div>
+

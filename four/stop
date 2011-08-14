@@ -1,0 +1,39 @@
+#!/bin/bash
+
+search_string="thin server" #what to kill
+
+svnstats_pid=`ps ux | awk "/$search_string/"' && !/awk/ {print $2}'`
+
+while [ "$svnstats_pid" != "" ]
+
+do
+
+ echo "svnstats running on pid $statsvn_pid"
+
+ kill $statsvn_pid
+ 
+ sleep 1 	
+ 
+ svnstats_pid=`ps ux | awk "/$search_string/"' && !/awk/ {print $2}'`
+ 	
+ if [ "$svnstats_pid" != "" ]
+
+  then
+
+    echo "svnstats still running after normal kill, trying -9"
+
+    kill -9 $svnstats_pid
+
+    sleep 1
+
+    svnstats_pid=`ps ux | awk "/$search_string/"' && !/awk/ {print $2}'`
+
+
+  fi
+	
+
+done
+
+echo "svnstats process killed"	
+
+exit 0

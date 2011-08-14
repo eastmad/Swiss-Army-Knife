@@ -1,0 +1,7 @@
+source "http://rubygems.org"
+gem "sinatra"
+gem 'eventmachine',         '0.12.10'
+gem 'rack',                  '1.2.1'
+gem 'thin',                 '1.2.7'
+gem 'nokogiri'
+

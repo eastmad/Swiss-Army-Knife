@@ -1,0 +1,12 @@
+<div id="main">
+  <% dev = find_developer_stats @filename%>
+  <h1>SVNStats about <%=dev[:name] %> </h1>
+  <table>
+    <tbody> 
+      <tr><td>Total Commits</td><td><b><%=dev[:commits]%><b></td></tr>
+      <tr><td>Lines of Code</td><td><b><%=dev[:linesofcode]%><b></td></tr>
+      <tr><td>Most Recent commit</td><td><b><%=dev[:recent]%><b></td></tr>
+    </tbody>
+  </table>
+</div>
+

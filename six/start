@@ -1,0 +1,16 @@
+#!/bin/bash
+FILE=config.yml
+
+if [ -f $FILE ];
+
+then
+
+ bundle exec thin -s 1 -C config.yml -R rackup.ru start
+ 	
+else
+ 	
+  echo "There is no $FILE file. Please create one based on the example file and replace the relevant entries."
+
+fi
+
+exit 0

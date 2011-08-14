@@ -1,0 +1,71 @@
+>> Writing PID to thin.4567.pid
+>> Changing process privilege to eastmad:eastmad
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [23/May/2011 13:26:01] "GET /hi HTTP/1.1" 200 25 0.0031
+127.0.0.1 - - [23/May/2011 13:26:07] "GET / HTTP/1.1" 404 18 0.0007
+>> Writing PID to thin.4567.pid
+>> Changing process privilege to eastmad:eastmad
+>> Exiting!
+rackup.ru:11:in `require_relative': cannot infer basepath (LoadError)
+	from rackup.ru:11:in `block in <main>'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+	from rackup.ru:1:in `new'
+	from rackup.ru:1:in `<main>'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/rack/adapter/loader.rb:36:in `eval'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/rack/adapter/loader.rb:36:in `load'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/controllers/controller.rb:175:in `load_rackup_config'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/controllers/controller.rb:65:in `start'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/runner.rb:177:in `run_command'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/runner.rb:143:in `run!'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/bin/thin:6:in `<top (required)>'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/bin/thin:19:in `load'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/bin/thin:19:in `<main>'
+>> Writing PID to thin.4567.pid
+>> Changing process privilege to eastmad:eastmad
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [13/Aug/2011 21:37:08] "GET / HTTP/1.1" 404 18 0.0029
+127.0.0.1 - - [13/Aug/2011 21:37:14] "GET /jobs HTTP/1.1" 404 18 0.0007
+127.0.0.1 - - [13/Aug/2011 21:37:14] "GET /status HTTP/1.1" 404 18 0.0004
+>> Writing PID to thin.4567.pid
+>> Changing process privilege to eastmad:eastmad
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [13/Aug/2011 21:41:28] "GET /index.html HTTP/1.1" 404 18 0.0029
+127.0.0.1 - - [13/Aug/2011 21:41:31] "GET /index.html HTTP/1.1" 404 18 0.0010
+127.0.0.1 - - [13/Aug/2011 21:41:35] "GET / HTTP/1.1" 404 18 0.0006
+127.0.0.1 - - [13/Aug/2011 21:41:38] "GET / HTTP/1.1" 404 18 0.0005
+127.0.0.1 - - [13/Aug/2011 21:41:42] "GET /index.html HTTP/1.1" 404 18 0.0007
+127.0.0.1 - - [13/Aug/2011 21:41:54] "GET /developers HTTP/1.1" 404 18 0.0005
+127.0.0.1 - - [13/Aug/2011 21:41:56] "GET /developers HTTP/1.1" 404 18 0.0007
+127.0.0.1 - - [13/Aug/2011 21:42:40] "GET /hi HTTP/1.1" 200 25 0.0008
+>> Writing PID to thin.4567.pid
+>> Changing process privilege to eastmad:eastmad
+>> Exiting!
+rackup.ru:12:in `require_relative': cannot infer basepath (LoadError)
+	from rackup.ru:12:in `block in <main>'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.1/lib/rack/builder.rb:46:in `instance_eval'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.1/lib/rack/builder.rb:46:in `initialize'
+	from rackup.ru:1:in `new'
+	from rackup.ru:1:in `<main>'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/rack/adapter/loader.rb:36:in `eval'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/rack/adapter/loader.rb:36:in `load'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/controllers/controller.rb:175:in `load_rackup_config'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/controllers/controller.rb:65:in `start'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/runner.rb:177:in `run_command'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/lib/thin/runner.rb:143:in `run!'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/gems/thin-1.2.7/bin/thin:6:in `<top (required)>'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/bin/thin:19:in `load'
+	from /home/eastmad/.rvm/gems/ruby-1.9.2-p180/bin/thin:19:in `<main>'
+>> Writing PID to thin.4567.pid
+>> Changing process privilege to eastmad:eastmad
+>> Thin web server (v1.2.7 codename No Hup)
+>> Maximum connections set to 1024
+>> Listening on 127.0.0.1:4567, CTRL+C to stop
+127.0.0.1 - - [13/Aug/2011 21:49:58] "GET / HTTP/1.1" 404 18 0.0020
+127.0.0.1 - - [13/Aug/2011 21:50:01] "GET /hi HTTP/1.1" 200 25 0.0006
