@@ -7,7 +7,7 @@ Jump through to what you find most interesting!
 While it is assumed you know a little about ruby, the examples are based on showing
 development practices
 
-#.One
+# One
 
 This folder contains the simplest possible Sinatra example. Sinatra is often considered to be more a DSL than 
 a framework - a DSL for defining restful HTTP.
@@ -23,5 +23,10 @@ then run
 and you will see the simple result at http://localhost:4567/hi
 
 So looking at the code and the result, you will guess that:
+
+1. We wrote some code to respond to the request 'GET /hi'
+2. The Sinatra default port must be 4567
+
+One other thing. If you just browse http://localhost:4567, Sinatra provides a nice error page.
 
 
