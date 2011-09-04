@@ -14,11 +14,11 @@ a framework - a DSL for defining restful HTTP.
 
 To run this, you will need to get the sinatra gem
 
- gem install sinatra
+    gem install sinatra
 
 then run
 
- ruby simple.rb
+    ruby simple.rb
 
 and you will see the simple result at http://localhost:4567/hi
 
