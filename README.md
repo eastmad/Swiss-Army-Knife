@@ -33,12 +33,23 @@ One other thing. If you just browse http://localhost:4567, Sinatra provides a ni
 
 Now we add the joys of Bundler, and take more control of the webserver.
 
-If you haven't already used it, [Bundler](http://gembundler.com/) gives you file level control of the gems.
+If you haven't already used it, [Bundler](http://gembundler.com/) gives you version level control of your gems.
+So you can see that the Gems we will need are listed in the Gemfile.
 
+Start by getting Bundler
 
+    gem install bundler
+    
+and from now on install gems as listed in the Gemfile
+
+    bundle install
 
 Follow the site for more details.
+To run the example, this time use 
 
-In example One, sintra will use whatever web server it can find. Now we will make sure we are using [Thin](http://code.macournoyer.com/thin/).
-The Gemfile contents ensure that when we 'bundle install', we get what we need for the Thin server.
+    bundle exec ruby simple.rb
 
+In example One, Sintra used whatever web server it could find. Now we will make sure we are using [Thin](http://code.macournoyer.com/thin/).
+
+
+# Three
