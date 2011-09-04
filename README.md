@@ -29,4 +29,16 @@ So looking at the code and the result, you will guess that:
 
 One other thing. If you just browse http://localhost:4567, Sinatra provides a nice error page.
 
+# Two
+
+Now we add the joys of Bundler, and take more control of the webserver.
+
+If you haven't already used it, [Bundler](http://gembundler.com/) gives you file level control of the gems.
+
+
+
+Follow the site for more details.
+
+In example One, sintra will use whatever web server it can find. Now we will make sure we are using [Thin](http://code.macournoyer.com/thin/).
+The Gemfile contents ensure that when we 'bundle install', we get what we need for the Thin server.
 
