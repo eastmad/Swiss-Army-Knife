@@ -53,3 +53,53 @@ In example One, Sintra used whatever web server it could find. Now we will make 
 
 
 # Three
+
+Now we add four files to support and configure Thin the way we want it.
+
+So what should we want to do?
+
+- to start the Thin server
+- to stop it
+- to define the name of the Sinatra app to run
+- to set the port
+- to set some logging
+- to make a nice process
+
+The files we add do that.
+
+Use the start bash script:
+
+    ./start
+
+Then stop the server when you are done.
+
+    ./stop
+
+The **rackup.ru** sets up the ruby app, wheras the **config.yml** configures Rack, the main bit of Thin. 
+
+Taking a look at the business part of the **start** script, we have:
+
+    bundle exec thin -s 1 -C config.yml -R rackup.ru start
+
+which asks Bundler to start one Thin process within its Gemfile environment.
+
+How about some code now?
+
+# Four
+
+So, some more interesting Sinatra code. The application file is now called **svnstats.rb** (with one change in **rackup.ru**) which indicates what we will be doing a bit later.
+
+    get '/developers/:name' do
+
+      #get the name paramater
+      name = params[:name]
+
+      #Create filename
+      filename = "userdata/user_#{name}@company.com.html"
+
+      #render
+      File.read(File.join(File.dirname(__FILE__), filename
+    
+    end
+
+So we will be 
