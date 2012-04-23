@@ -4,8 +4,7 @@ The six folders contain step by step examples of application development around 
 Folder 'one' is the simplest example, all the way to six that is based on a live application. 
 Jump through to what you find most interesting!
 
-While it is assumed you know a little about ruby, the examples are based on showing
-development practices
+While it is assumed you know a little about ruby, the examples are based on showing development practices.
 
 # One
 
@@ -98,11 +97,15 @@ So, some more interesting Sinatra code. The application file is now called **svn
       filename = "userdata/user_#{name}@company.com.html"
 
       #render
-      File.read(File.join(File.dirname(__FILE__), filename
+      File.read(File.join(File.dirname(__FILE__), filename))
     
     end
 
-(To be continued)
+A few steps beyond Hello World. First of all, we handle a varibale part of the url with the :name variable. We use this to get a developers name, and then extract the file that holds the stats for that developer.
+
+Remember that with ruby, the last statement of a method to be evaluated is the return value. So the File.read statement is the thing to be rendered.  That odd __FILE__ construct means "the file that we are currently in".  
+
+What sort of error handling should exist here?
 
 # Five
 # Six
