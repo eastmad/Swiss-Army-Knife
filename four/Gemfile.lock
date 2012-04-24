@@ -2,22 +2,25 @@ GEM
   remote: http://rubygems.org/
   specs:
     daemons (1.1.3)
-    eventmachine (0.12.10)
-    rack (1.2.1)
-    sinatra (1.2.6)
-      rack (~> 1.1)
-      tilt (>= 1.2.2, < 2.0)
-    thin (1.2.7)
+    eventmachine (1.0.0.beta.4.1-x86-mingw32)
+    rack (1.4.1)
+    rack-protection (1.2.0)
+      rack
+    sinatra (1.3.2)
+      rack (~> 1.3, >= 1.3.6)
+      rack-protection (~> 1.2)
+      tilt (~> 1.3, >= 1.3.3)
+    thin (1.3.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    tilt (1.3)
+    tilt (1.3.3)
 
 PLATFORMS
-  ruby
+  x86-mingw32
 
 DEPENDENCIES
-  eventmachine (= 0.12.10)
-  rack (= 1.2.1)
+  eventmachine (> 0.12.10)
+  rack (> 1.2.1)
   sinatra
-  thin (= 1.2.7)
+  thin (> 1.2.7)

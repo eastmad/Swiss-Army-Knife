@@ -5,6 +5,7 @@ Folder 'one' is the simplest example, all the way to six that is based on a live
 Jump through to what you find most interesting!
 
 While it is assumed you know a little about ruby, the examples are based on showing development practices.
+I'll assume you have ruby installed, a healthy internet connection, and don't get too flustered about installing or building things on your machine.
 
 # One
 
@@ -76,7 +77,7 @@ Then stop the server when you are done.
 
 The **rackup.ru** sets up the ruby app, wheras the **config.yml** configures Rack, the main bit of Thin. 
 
-Taking a look at the business part of the **start** script, we have:
+Taking a look at the business part (use this for Windows) of the **start** script, we have:
 
     bundle exec thin -s 1 -C config.yml -R rackup.ru start
 
@@ -105,7 +106,13 @@ A few steps beyond Hello World. First of all, we handle a varibale part of the u
 
 Remember that with ruby, the last statement of a method to be evaluated is the return value. So the File.read statement is the thing to be rendered.  That odd __FILE__ construct means "the file that we are currently in".  
 
-What sort of error handling should exist here?
+What sort of error handling should exist here? Clearly we shouldn't attempt to relate a file to name if the file may not exist.
+
+Looking at the pre-existing data in the userdata folder, entering the url:
+
+   http://localhost:4567/developers/david.eastman 
+   
+should render a statistics screen that states I made almost 7% of 144 commits.
 
 # Five
 # Six
