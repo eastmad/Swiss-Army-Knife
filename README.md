@@ -96,7 +96,7 @@ Start with:
  
  bundle install
 
-So, some more interesting Sinatra code. The application file is now called **svnstats.rb** (with one change in **rackup.ru**) which indicates what we will be doing a bit later.
+So, some more interesting Sinatra code. The application file is now called **svnstats.rb** (with one change in **rackup.ru**) which indicates what we want this example app to do.
 
     get '/developers/:name' do
 
@@ -111,7 +111,9 @@ So, some more interesting Sinatra code. The application file is now called **svn
     
     end
 
-A few steps beyond Hello World. First of all, we handle a varibale part of the url with the :name variable. We use this to get a developers name, and then extract the file that holds the stats for that developer.
+We have some generated svn statistics in the directory **userdata**, and we just want to display them.
+
+A few steps beyond Hello World. First of all, Sintra can represent a varibale part of the url with named parameter, placed in the __params__ hash. We use this to get a developers name, and then extract the file that holds the stats for that developer.
 
 Remember that with ruby, the last statement of a method to be evaluated is the return value. So the File.read statement is the thing to be rendered.  That odd __FILE__ construct means "the file that we are currently in". 
 
@@ -130,4 +132,48 @@ should render a statistics screen that states I made almost 7% of 144 commits.
 As we have't fixed them up, no other links are working. And notice Sintra is not supplying a default error page anymore.
 
 # Five
+
+Now the server responds to http://localhost:4567/developers, and the individual developers listed.
+
+This had been done by use of a template.
+
+In **svnstats.rb**, we have the extra route:
+
+  get '/developers' do
+    erb :developers
+  end
+
+This tells Sinatra to render the erb template called :developers in response. Sinatra can use quite a few [template languages](http://www.sinatrarb.com/intro#Available%20Template%20Languages)
+
+As Sinatra follows convention over configuration, you can be sure the template sits in /views/developers.rhtml.
+
+The template contains the code fragment
+
+  ..
+  <% @user_data.each do | dev | %>
+    <tr><td><b><a href="developers/<%=dev[:name]%>"><%=dev[:name]%><b></td></tr>
+  <% end %>
+  ..
+
+which enumerates over the instance collection @user_data to produce the links for the developers.
+
+So before the developers page is rendered, somewhere the array @user_data is populated with the developer names.
+
+It is done in **svnstats.rb** in a before block.
+
+  before do
+    @user_data = []
+
+    Dir.entries(File.join(File.dirname(__FILE__),"userdata")).each do | f |
+	    
+      #regex for name
+      md = /user_(.*)@company.com/.match(f)
+
+      @user_data << {:name => md[1], :file => f} unless md.nil?
+    end
+  end 
+
+Sintra passes any instance variable, in this case **@users_data** to any template that a route renders.
+The rest of the block enumerates over the **usersdata** directory, and extracts the developer's name from the filename using a simple regex. If match data exists, a hash is added to **@user_data** with the group match.
+
 # Six
