@@ -125,7 +125,7 @@ Use the start bash script:
 
 Looking at the pre-existing data in the userdata folder, entering the url:
 
-   http://localhost:4567/developers/david.eastman 
+    http://localhost:4567/developers/david.eastman 
    
 should render a statistics screen that states I made almost 7% of 144 commits.
 
@@ -139,21 +139,21 @@ This had been done by use of a template.
 
 In **svnstats.rb**, we have the extra route:
 
-  get '/developers' do
-    erb :developers
-  end
+    get '/developers' do
+      erb :developers
+    end
 
 This tells Sinatra to render the erb template called :developers in response. Sinatra can use quite a few [template languages](http://www.sinatrarb.com/intro#Available%20Template%20Languages)
 
 As Sinatra follows convention over configuration, you can be sure the template sits in /views/developers.rhtml.
 
-The template contains the code fragment
+The template **developers.rhtml** contains the code fragment
 
-  ..
-  <% @user_data.each do | dev | %>
-    <tr><td><b><a href="developers/<%=dev[:name]%>"><%=dev[:name]%><b></td></tr>
-  <% end %>
-  ..
+    ..
+    <% @user_data.each do | dev | %>
+      <tr><td><b><a href="developers/<%=dev[:name]%>"><%=dev[:name]%><b></td></tr>
+    <% end %>
+    ..
 
 which enumerates over the instance collection @user_data to produce the links for the developers.
 
@@ -161,17 +161,19 @@ So before the developers page is rendered, somewhere the array @user_data is pop
 
 It is done in **svnstats.rb** in a before block.
 
-  before do
-    @user_data = []
+    ..
+    before do
+      @user_data = []
 
-    Dir.entries(File.join(File.dirname(__FILE__),"userdata")).each do | f |
+      Dir.entries(File.join(File.dirname(__FILE__),"userdata")).each do | f |
 	    
-      #regex for name
-      md = /user_(.*)@company.com/.match(f)
+        #regex for name
+        md = /user_(.*)@company.com/.match(f)
 
-      @user_data << {:name => md[1], :file => f} unless md.nil?
+        @user_data << {:name => md[1], :file => f} unless md.nil?
+      end
     end
-  end 
+    .. 
 
 Sintra passes any instance variable, in this case **@users_data** to any template that a route renders.
 The rest of the block enumerates over the **usersdata** directory, and extracts the developer's name from the filename using a simple regex. If match data exists, a hash is added to **@user_data** with the group match.
