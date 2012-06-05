@@ -180,7 +180,7 @@ The rest of the block enumerates over the **usersdata** directory, and extracts 
 
 # Six
 
-Say hello to [nokogiri](nokogiri.org). This guide is called Swiss Army Knife because it uses a few of the more useful bits of ruby, and one of them is nokogiri. This gem makes using xpath, for example, very simple. 
+Say hello to [nokogiri](http://nokogiri.org). This guide is called Swiss Army Knife because it uses a few of the more useful bits of ruby, and one of them is nokogiri. This gem makes using xpath, for example, very simple. 
 
 Running our app using
 
