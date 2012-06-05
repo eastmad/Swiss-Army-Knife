@@ -7,6 +7,10 @@ Jump through to what you find most interesting!
 While it is assumed you know a little about ruby, the examples are based on showing development practices.
 I'll assume you have ruby installed, a healthy internet connection, and don't get too flustered about installing or building things on your machine.
 
+I have tried to [document the problems](https://github.com/eastmad/Swiss-Army-Knife/wiki/iceberg-ahead) I confronted getting things to work - and if you are new to any of the tools used, you will hit issues.  
+
+Windows users will bump into even more problems, and some things do not actually work - but I have made [notes on these](https://github.com/eastmad/Swiss-Army-Knife/wiki/windows) as well.   
+
 # One
 
 This folder contains the simplest possible Sinatra example. Sinatra is often considered to be more a DSL than 
