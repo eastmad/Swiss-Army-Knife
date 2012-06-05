@@ -179,3 +179,46 @@ Sintra passes any instance variable, in this case **@users_data** to any templat
 The rest of the block enumerates over the **usersdata** directory, and extracts the developer's name from the filename using a simple regex. If match data exists, a hash is added to **@user_data** with the group match.
 
 # Six
+
+Say hello to [nokogiri](nokogiri.org). This guide is called Swiss Army Knife because it uses a few of the more useful bits of ruby, and one of them is nokogiri. This gem makes using xpath, for example, very simple. 
+
+Running our app using
+
+    ./start
+
+you will see that instead of just rendering the generated stats files directly for each developer, we have extracted the information as needed and passed it to a template: 
+
+    get '/developers/:name' do
+      #get the name paramater
+      name = params[:name]
+      
+      #Create filename
+      @filename = "userdata/user_#{name}@company.com.html"
+
+      #render
+      erb :developer
+    end
+
+And the __:developer__ template, faithfully sitting in **views/developer.rhtml** works pretty much like the other template we used in the previous section. However it calls a method called __find_developer_stats__ passing in __@filename__; where does this come from?
+
+At the top of **statsvn.rb** we have included a helper file:
+
+    require_relative 'lib/helpers/developers_helper'
+    helpers DeveloperStatsHelper
+
+which effectively allows any methods in the module DeveloperStatsHelper to be called directly.
+
+    def find_developer_stats filename
+        @doc = Nokogiri::XML(File.open(filename))
+        
+        def_list = @doc.css("dl[class='attributes']")    
+      
+        login_name = def_list.css("dt:contains('Login name') + dd").text
+        total_commits = def_list.css("dt:contains('Total Commits') + dd").text
+        lines_of_code = def_list.css("dt:contains('Lines of Code') + dd").text
+        recent_commit = def_list.css("dt:contains('Most Recent Commit') + dd span")
+        
+        {:name => login_name, :commits => total_commits, :linesofcode => lines_of_code, :recent => recent_commit}
+    end
+
+In this case, we choose a CSS style selector and with no ceremony ask for the result of   
