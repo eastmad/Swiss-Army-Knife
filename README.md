@@ -20,7 +20,7 @@ then run
 
     ruby simple.rb
 
-and you will see the simple result at http://localhost:4567/hi
+and you will see the simple result at *'http://localhost:4567/hi'*
 
 So looking at the code and the result, you will guess that:
 
@@ -113,9 +113,9 @@ So, some more interesting Sinatra code. The application file is now called **svn
 
 We have some generated svn statistics in the directory **userdata**, and we just want to display them.
 
-A few steps beyond Hello World. First of all, Sintra can represent a varibale part of the url with named parameter, placed in the __params__ hash. We use this to get a developers name, and then extract the file that holds the stats for that developer.
+A few steps beyond Hello World. First of all, Sintra can represent a varibale part of the url with named parameter, placed in the *params* hash. We use this to get a developers name, and then extract the file that holds the stats for that developer.
 
-Remember that with ruby, the last statement of a method to be evaluated is the return value. So the File.read statement is the thing to be rendered.  That odd __FILE__ construct means "the file that we are currently in". 
+Remember that with ruby, the last statement of a method to be evaluated is the return value. So the File.read statement is the thing to be rendered.  That odd \_\_FILE\_\_ construct means "the file that we are currently in". 
 
 What sort of error handling should exist here? Clearly we shouldn't attempt to relate a file to name if the file may not exist.
 
@@ -199,7 +199,7 @@ you will see that instead of just rendering the generated stats files directly f
       erb :developer
     end
 
-And the __:developer__ template, faithfully sitting in **views/developer.rhtml** works pretty much like the other template we used in the previous section. However it calls a method called __find_developer_stats__ passing in __@filename__; where does this come from?
+And the *:developer* template, faithfully sitting in **views/developer.rhtml** works pretty much like the other template we used in the previous section. However it calls a method called *find_developer_stats* passing in *@filename*; where does this come from?
 
 At the top of **statsvn.rb** we have included a helper file:
 
@@ -221,4 +221,19 @@ which effectively allows any methods in the module DeveloperStatsHelper to be ca
         {:name => login_name, :commits => total_commits, :linesofcode => lines_of_code, :recent => recent_commit}
     end
 
-In this case, we choose a CSS style selector and with no ceremony ask for the result of   
+In this case, we choose a CSS style selector and with no ceremony ask for the "dl tags that have a 'class' value of 'attriutes'".
+
+An example of the html we will hit from the filename was pass in appears here:
+
+    <dl class="attributes">
+        <dt>Login name:</dt>
+        <dd>bill.chapman@company.com</dd>
+        <dt>Total Commits:</dt>
+        <dd>264 (12.7%)</dd>
+        <dt>Lines of Code:</dt>
+        <dd>9,830 (14.1%)</dd>
+        <dt>Most Recent Commit:</dt>
+        <dd><span class="date">2011-04-08 17:21</span></dd>
+    </dl>
+
+Hence, the *login_name* is extracted with the instruction meaning "get me the inner text of the tag following the *dt* tag that contains the string 'Login name'"
